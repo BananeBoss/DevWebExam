@@ -1,28 +1,43 @@
 <mat-card class="carteCustom">
   <mat-card-header>
-    <img *ngIf="titre?.picture" mat-card-image [src]="titre?.picture" alt="pochette de l'album" />
-    <mat-card-title> {{titre?.title | uppercase}} {{titre?.artist}} </mat-card-title>
+    <mat-card-title> <b>{{titre?.title | uppercase}}</b> - {{titre?.artist}} </mat-card-title>
+    <mat-card-subtitle>
+      <mat-card-content>
+        <br />
+        <img *ngIf="titre?.picture" mat-card-image [src]="titre?.picture" alt="pochette de l'album" />
+
+      </mat-card-content>
+    </mat-card-subtitle>
+
     <mat-card-subtitle>
       <mat-card-content>
         <mat-chip-list>
-          <mat-chip color="primary" *ngFor="let titre of titre?.album">
+          <mat-chip color="primary" *ngFor="let style of titre?.styles">
             <mat-icon class="small">
-              work_outline
+              music_note
             </mat-icon>
-            {{titre}}
+            {{style}}
           </mat-chip>
         </mat-chip-list>
       </mat-card-content>
     </mat-card-subtitle>
+
   </mat-card-header>
   <mat-card-content>
     <mat-card-subtitle class="info">
-      <mat-icon>email</mat-icon>
-      {{titre?.description}}
+      <mat-icon>disc_full</mat-icon>
+      <p>{{titre?.album}}</p>
     </mat-card-subtitle>
     <mat-card-subtitle class="info">
-      <mat-icon>phone</mat-icon>
-      <a href="tel:{{titre?.duration}}" title="Call">{{titre?.date}}</a>
+      <mat-icon>access_time</mat-icon>
+      <p>{{titre?.duration}}</p>
+    </mat-card-subtitle>
+    <mat-card-subtitle class="info">
+      <p>{{titre?.description}}</p>
+    </mat-card-subtitle>
+    <mat-card-subtitle class="info">
+      <mat-icon>date_range</mat-icon>
+      <p>{{parseDate(titre?.date)}}</p>
     </mat-card-subtitle>
   </mat-card-content>
 

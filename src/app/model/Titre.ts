@@ -6,6 +6,6 @@ export interface Titre {
   artist?: string;
   duration?: string;
   date?: string;
-  style?: string[];
+  styles?: string[];
   picture?: string | ArrayBuffer | null;
 }

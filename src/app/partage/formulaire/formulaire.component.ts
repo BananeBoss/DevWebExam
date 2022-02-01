@@ -1,8 +1,8 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {MatChipInputEvent} from "@angular/material/chips";
-import {COMMA, ENTER} from "@angular/cdk/keycodes";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Titre} from "../../model/Titre";
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { MatChipInputEvent } from "@angular/material/chips";
+import { COMMA, ENTER } from "@angular/cdk/keycodes";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Titre } from "../../model/Titre";
 
 @Component({
   selector: 'formulaire',
@@ -30,54 +30,52 @@ export class FormulaireComponent implements OnInit {
 
   ngOnInit() {
     debugger;
-   /* this.form.patchValue({
-      id: this.employeModel.id,
-      nom: this.employeModel.nom,
-      prenom: this.employeModel.prenom,
-      email: this.employeModel.email,
-      titres: this.employeModel.titres || [],
-      sexe: this.employeModel.sexe,
-      photo: this.employeModel.photo,
-      telephone: this.employeModel.telephone
-    });*/
+    this.form.patchValue({
+      id: this.titreModel.id,
+      title: this.titreModel.title,
+      description: this.titreModel.description,
+      album: this.titreModel.album,
+      artist: this.titreModel.artist,
+      duration: this.titreModel.duration,
+      date: this.titreModel.date,
+      picture: this.titreModel.picture,
+    });
   }
 
   cancel() {
     this.cancelEvent$.emit();
   }
-/*
-  submit(employe: Person) { //Formulaire
-    employe.photo = this.employeModel.photo;
-    this.submitEvent$.emit(employe);
-  }
 
+  submit(titre: Titre) { //Formulaire
+    titre.picture = this.titreModel.picture;
+    this.submitEvent$.emit(titre);
+  }
 
   addChipset(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
     if (value) {
-      this.employeModel.titres!.push(value);
+      this.titreModel.styles!.push(value);
     }
     event.chipInput!.clear();
   }
 
   removeChipset(titre: any): void {
-    const index = this.employeModel.titres!.indexOf(titre);
-    this.employeModel.titres!.splice(index, 1);
+    const index = this.titreModel.styles!.indexOf(titre);
+    this.titreModel.styles!.splice(index, 1);
   }
 
-  onFileSelected(event:Event | null) {
+  onFileSelected(event: Event | null) {
     const files = (<HTMLInputElement>event?.currentTarget).files;
-    const file:File | null = files!.item(0);
+    const file: File | null = files!.item(0);
 
     if (file) {
-        let reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = (_event) => {
-          this.employeModel.photo = reader.result;
-        }
+      let reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (_event) => {
+        this.titreModel.picture = reader.result;
+      }
     }
   }
-*/
   /**
    * Fonction pour construire notre formulaire
    * @returns {FormGroup}
@@ -87,12 +85,14 @@ export class FormulaireComponent implements OnInit {
   private static buildForm(): FormGroup {
     return new FormGroup({
       id: new FormControl(''),
-      prenom: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
-      nom: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
-      email: new FormControl('', Validators.required),
-      titres: new FormControl(''),
-      sexe: new FormControl(''),
-      telephone: new FormControl('', Validators.compose([Validators.required, Validators.pattern('\\d{10}')])),
+      title: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
+      album: new FormControl('', Validators.required),
+      artist: new FormControl('', Validators.required),
+      description: new FormControl(''),
+      duration: new FormControl('', Validators.required),
+      styles: new FormControl(''),
+      date: new FormControl('', Validators.required),
+      picture: new FormControl(''),
     });
   }
 

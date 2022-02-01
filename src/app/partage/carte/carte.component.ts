@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Titre} from "../../model/Titre";
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Titre } from "../../model/Titre";
 
 @Component({
   selector: 'carte',
@@ -26,4 +26,10 @@ export class CarteComponent {
   update() {
     this.update$.emit(this.titre);
   }
+
+  parseDate(date?: string) {
+    //comprend pas pourquoi cela ne fonctionne pas sur les dates des exemples, mais fonctionne sur les date que je créé...
+    return new Date(Date.parse("" + date));
+  }
 }
+

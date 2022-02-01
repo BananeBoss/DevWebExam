@@ -3,8 +3,8 @@
   "langue.allemand": "Allemand",
   "langue.anglais": "Anglais",
 
-  "drawer.accueil": "Accueil",
-  "drawer.listPersonnel": "Liste du Personnel",
+  "drawer.random": "Titre aléatoire",
+  "drawer.listMusic": "Liste des musiques",
   "drawer.stats": "Statistiques",
   "drawer.contact": "Contact"
 }

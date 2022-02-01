@@ -35,6 +35,8 @@ import {MatMenuModule} from "@angular/material/menu";
 import {FormulaireComponent} from "./partage/formulaire/formulaire.component";
 import {EditionComponent} from "./list-personnel/edition/edition.component";
 import {AjoutPopupComponent} from "./list-personnel/ajout-popup/ajout-popup.component";
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -76,6 +78,17 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatCheckboxModule,
     FormsModule,
     NgxEchartsModule,
+    BrowserModule,
+
+    BrowserAnimationsModule,
+
+    MatDatepickerModule,
+
+    MatNativeDateModule,
+
+    MatFormFieldModule,
+
+    MatInputModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     }),
