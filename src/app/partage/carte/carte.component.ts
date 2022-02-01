@@ -27,9 +27,9 @@ export class CarteComponent {
     this.update$.emit(this.titre);
   }
 
-  parseDate(date?: string) {
+  parseDate(date?: string): String {
     //comprend pas pourquoi cela ne fonctionne pas sur les dates des exemples, mais fonctionne sur les date que je créé...
-    return new Date(Date.parse("" + date));
+    return new Date(Date.parse("" + date)).toDateString();
   }
 }
 

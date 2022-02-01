@@ -1,12 +1,6 @@
-# ⬇ 1. Installation
-1. Clonez le projet avec la commande `git clone https://github.com/MarcPetitdemange/cours-dev-web-angular.git`
-2. Allez à la racine du projet `cd {nomDeLaRacineDeVotreProjet}`
-3. Executez la commande `npm install` pour installer les dépendances
-4. Executez la commande `npm start` pour lancer le projet et avoir un aperçu du rendu final de l'application
+## Johann Conicella
 
-# 🛠️ 2. Développement & TP
+# Mon TP
+On part d'un copié-collé du projet vu en cours, car le sujet est assez semblable au final. Il a fallut transformé les occurences de "employe" en "titre" dans un premier temps ;)
 
-----
-# 📄 README Angular
-Vous pouvez aller lire le [README](./README-ANGULAR.md) proposé à la création par Angular.  
-Il contient quelques commandes intéressantes qui vous seront sans doûte utiles 😉.
+Parmis les difficultés; je ne parviens pas à afficher la date correctement, je n'arrive pas à ajouter des tags "styles" aux titres que je créés malgrès copié-collé du tp, je ne parviens pas également à éditer un titre ...

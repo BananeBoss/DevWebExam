@@ -17,8 +17,8 @@ export class ContactComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.nom!.nativeElement!.innerHTML = "Petitdemange";
-    this.prenom!.nativeElement!.innerHTML = "Marc";
+    this.nom!.nativeElement!.innerHTML = "Conicella";
+    this.prenom!.nativeElement!.innerHTML = "Johann";
     //Vide
     }
 

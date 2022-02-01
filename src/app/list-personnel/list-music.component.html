@@ -6,7 +6,7 @@
   <section *ngSwitchCase="'list'">
     <mat-list>
       <mat-list-item *ngFor="let titre of titres" class="mat-whiteframe-2dp mat-card">
-        <img mat-list-avatar src="{{ titre.picture }}" alt="Avatar de l'employé"/>
+        <img mat-list-avatar src="{{ titre.picture }}" alt="Image pochette"/>
         <h2 mat-line> <b>{{ titre.title }}</b> - {{ titre.artist }} </h2>
         <p mat-line>
           <span>{{ titre.album }} </span>

@@ -5,16 +5,16 @@
     <form novalidate [formGroup]="form">
 
       <p [class.errors]="form.get('title')!.invalid && (form.get('title')!.dirty || form.get('title')!.touched)">
+        <label>Title :</label>
         <mat-form-field class="name">
-          <label>Title :</label>
           <input formControlName="title" name="title" matInput placeholder="Ex: Thriller" required />
           <mat-error *ngIf="form.get('title')!.dirty && form.get('title')!.errors?.['required']"><br />Le titre est
             obligatoire</mat-error>
           <mat-error *ngIf="form.get('title')!.dirty && form.get('title')!.errors?.['minlength']"><br />Le titre doit
             avoir au moins 2 caractères </mat-error>
         </mat-form-field>
+        <label>Artist :</label>
         <mat-form-field class="name">
-          <label>Artist :</label>
           <input formControlName="artist" matInput placeholder="Ex: Michael Jackson" name="artist" required />
           <mat-error *ngIf="form.get('artist')!.dirty && form.get('artist')!.errors?.['required']"><br />L'artiste est
             obligatoire</mat-error>
@@ -40,25 +40,25 @@
       <mat-form-field>
         <input formControlName="date" matInput [matDatepicker]="picker" placeholder="Choose a date">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker ></mat-datepicker>
+        <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-
-      <mat-form-field class="chip-list" >
-        <mat-label><mat-icon>music_note</mat-icon> Style :</mat-label>
-        <mat-chip-list #chipList aria-label="Intitulés des fonctions de l'employés">
-          <mat-chip *ngFor="let style of titreModel.styles" (removed)="removeChipset(style)" >
-            {{style}}
-            <button matChipRemove>
-              <mat-icon>cancel</mat-icon>
-            </button>
-          </mat-chip>
-          <input placeholder="Ex: Rock..."
-                 [matChipInputFor]="chipList"
-                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                 (matChipInputTokenEnd)="addChipset($event)">
-        </mat-chip-list>
-      </mat-form-field>
-
+      <p>
+        <mat-form-field class="chip-list">
+          <mat-label>
+            <mat-icon>music_note</mat-icon> Style :
+          </mat-label>
+          <mat-chip-list #chipList aria-label="Intitulés des fonctions de l'employés">
+            <mat-chip *ngFor="let style of titreModel.styles" (removed)="removeChipset(style)">
+              {{style}}
+              <button matChipRemove>
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+            <input placeholder="Ex: Rock..." [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="addChipset($event)">
+          </mat-chip-list>
+        </mat-form-field>
+      </p>
       <input #fileInput type="file" (change)="onFileSelected($event)" name="photo" style="display: none;"
         accept=".png,.jpg" />
       <div *ngIf="titreModel.picture">
