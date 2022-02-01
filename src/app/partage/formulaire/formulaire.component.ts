@@ -2,7 +2,7 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} f
 import {MatChipInputEvent} from "@angular/material/chips";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Person} from "../../model/Person";
+import {Titre} from "../../model/Titre";
 
 @Component({
   selector: 'formulaire',
@@ -11,7 +11,7 @@ import {Person} from "../../model/Person";
 })
 export class FormulaireComponent implements OnInit {
   form: FormGroup;
-  @Input() employeModel: Person;
+  @Input() titreModel: Titre;
   @ViewChild("fileInput") fileInput!: ElementRef;
 
   @Output('cancel') cancelEvent$: EventEmitter<any>;
@@ -23,14 +23,14 @@ export class FormulaireComponent implements OnInit {
     this.submitEvent$ = new EventEmitter();
     this.cancelEvent$ = new EventEmitter();
     this.form = FormulaireComponent.buildForm();
-    this.employeModel = {
-      titres: []
+    this.titreModel = {
+      //Titre: []
     };
   }
 
   ngOnInit() {
     debugger;
-    this.form.patchValue({
+   /* this.form.patchValue({
       id: this.employeModel.id,
       nom: this.employeModel.nom,
       prenom: this.employeModel.prenom,
@@ -39,13 +39,13 @@ export class FormulaireComponent implements OnInit {
       sexe: this.employeModel.sexe,
       photo: this.employeModel.photo,
       telephone: this.employeModel.telephone
-    });
+    });*/
   }
 
   cancel() {
     this.cancelEvent$.emit();
   }
-
+/*
   submit(employe: Person) { //Formulaire
     employe.photo = this.employeModel.photo;
     this.submitEvent$.emit(employe);
@@ -77,7 +77,7 @@ export class FormulaireComponent implements OnInit {
         }
     }
   }
-
+*/
   /**
    * Fonction pour construire notre formulaire
    * @returns {FormGroup}

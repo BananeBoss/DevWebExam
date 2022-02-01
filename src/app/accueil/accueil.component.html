@@ -1,8 +1,8 @@
-<section  *ngIf="employe; else noEmploye">
-  <carte [employe]="employe" (personDelete)="delete($event)"></carte>
+<section  *ngIf="titre; else noTitre">
+  <carte [titre]="titre" (personDelete)="delete($event)"></carte>
 </section>
 
-<ng-template #noEmploye>
+<ng-template #noTitre>
   <span>Aucuns employés actuellement en base</span>
 </ng-template>
 
